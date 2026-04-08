@@ -1,49 +1,62 @@
-struct group_info init_groups = { .usage = ATOMIC_INIT(2) };
-
-struct group_info *groups_alloc(int gidsetsize){
-
-	struct group_info *group_info;
-
-	int nblocks;
-
-	int i;
 
 
-
-	nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;
-
-	/* Make sure we always allocate at least one indirect block pointer */
-
-	nblocks = nblocks ? : 1;
-
-	group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);
-
-	if (!group_info)
-
-		return NULL;
-
-	group_info->ngroups = gidsetsize;
-
-	group_info->nblocks = nblocks;
-
-	atomic_set(&group_info->usage, 1);
-
-
-
-	if (gidsetsize <= NGROUPS_SMALL)
-
-		group_info->blocks[0] = group_info->small_block;
-
-	else {
-
-		for (i = 0; i < nblocks; i++) {
-
-			gid_t *b;
-
-			b = (void *)__get_free_page(GFP_USER);
-
-			if (!b)
-
-				goto out_undo_partial_alloc;
-
-			group_info->blocks[i] = b;
+%PDF-1.4
+%����
+1 0 obj
+<</Title (Letter for Case Study - Group 2)
+/Producer (Skia/PDF m148 Google Docs Renderer)>>
+endobj
+3 0 obj
+<</ca 1
+/BM /Normal>>
+endobj
+9 0 obj
+<</CA 1
+/ca 1
+/LC 0
+/LJ 0
+/LW 1.33333337
+/ML 10
+/SA true
+/BM /Normal>>
+endobj
+11 0 obj
+<</N 3
+/Filter /FlateDecode
+/Length 294>> stream
+x����J�`��Ԃ(��28�h��mRpi#�V!�S�� �IHS�tspu+.ހ�e(��%���|
+�:t��������@V��G�zM��<���$*�xÐ�!��K�����c��z�G���
+��>�&|)�4c�Ƃ���	��ٛbw��0�o�Π?�һY���M�֩УO�<MN8�!��I�=�P)��QA�8�*
+E�Ԩabb�����K���3Y܀�sW��^���^Smc+�p��j�ǡ9)d�]���eV�`������y����c�
+*���K�
+endstream
+endobj
+10 0 obj
+<</Type /XObject
+/Subtype /Image
+/Width 951
+/Height 104
+/ColorSpace [/ICCBased 11 0 R]
+/SMask 12 0 R
+/BitsPerComponent 8
+/Filter /FlateDecode
+/Length 17786>> stream
+x���tT��?����>�4i4�^��w.�8q!���n��g�qv�u��;����v�P%��`c�:�c0��Bu�Q/ @�Ҵ�?�7���h�~��p�̛��s�wﹿ�@!�B!�B!�B!�B!�B!�B!�B!�B!�B!tk���
+`Y`�8T*�j�d�q�����@Z������
+�A@��Ճ���7�NB!�Н��_,Gr� �l@�2ǁ(����@���zHh��vHl��vHm!99��h�������Id$(��3<B!��������nI�>�PԥW��~}�����w�4I�
+��=��Aj$��������)�����ϩ�Nh��cA���/�-B!�����IN��!	Y:�=z�G��/!��j�i�$�k��W$t@R��$'w����� �{���"���bH�"rr1�����B!t8�8g.�<@]8����]��͹�?E��k��U.�] *'$@B$T����;� �
+;/BZ�\=n�_;��-$���w�B!tC��ig�ʡ�ٔ+�rfў\��]ǿ�C�W<�K�8�%rNn%��=N�y�r0�r]MH�����B!��w>-�+�����vf��,��C2{���z�髪N'u����H�Ej'���B�x�!��B�!�B
+)�ܹ�+�9���qe�}��Τ�÷�f�h9'_��
+�ȸo���]rN� �i]��?�������H�B!��H��S�lƕ��O.�:�v�M)�$!����y����-e�͐�Irrj;I��R@�2$�v�T�8�B!t��qH��%
+�=�Q
+	����X���u�!_�l	�v���7�$gBlH�n�o�B!t�p��ɒ^�gIBn�W�kCB����#K��!9�:�!��u.�����{�&!6$��j~)�B�,�N�� ���!e��w'	 }tSn��v��JrE7�v���;/|w�P�d�UrNF!�B�sz���lʙE��A�O&x�Aʽ�G�ܙ��-e�;�lp�<J����$
+8xvV�������ޮ_O2�\:%!�B�֗Er�;�!��NPdz[I�R�5_J��K'�d�
+�N�㌔)8O�;[���K�2�\7B����lH]�t�QJr2i�p_C��P�d��q�&!�B���,R�u�О\F*��BڙKK����
+��IN>j��Z�"�@B�q2lٝGKe�'O�\vcB��t#��yhd�/�G��q��kK�8�!�Bh萄|�:\�c��q�3�2Z:sm��+�
+p晜�f���)�H��k����ɡ�Bޙ�x
+w�<�Ɂ�?�&�Y��o��ddJ+��\sB�<$O�p!�BC��E9�9J���˺�82������7���<�t�,UZ�yf���9 �]�E$	�N�d�r.�w\y,��Y7������Y�z��}Kn�=	�i]d���y��
+<^!�BH�Υ%��Q.�r��e"�Br_��+�@rr�Y*�H�f餥/�(���u�r�q��'xW&M�ld�'�Nj�}�w���]��yC�Fe�B��HBΕW���n�H�U�(������s;R���0�f��,�����^���@�Q����H\hP\hP��'	��������������� �B�[B��ϝ�ߗcp�����RiH�����7��;
+t�y��k��w'1�t#�8��<��dC2B!���H�n����'�����|��Jr��]@^8FO��}���7����˜'`�w s-���!�B];Io����|�;���3�囤��!��0K�#������r�����ÿ��n2�C2B!��
+d�Ŕ��pp�W�m�#���;���3y&��+��"��]����a4xfO���+4�:�M�I��
+B��`O��]ht�]����*0��\|ުe6�k��f���Oz-��(j�$#�B
+���=�`��A�I|:��H�+u�|����3���o��x�yHv:,�{�,R��{E%��a<_hl*2��$�Q*�-��ɈW��S`�%d��x�n���حrBޠe������|
